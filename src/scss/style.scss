@@ -1,0 +1,18 @@
+@use "base/reset";
+@use "base/fonts";
+@use "base/vars";
+@use "base/root";
+@use "base/mixin" as *;
+@use "base/common";
+@use "components/main";
+
+[class*="__container"] {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 0px 15px;
+    min-width: 0;
+}
+body {
+    color: 20px;
+    font-family: var(--roboto);
+}
