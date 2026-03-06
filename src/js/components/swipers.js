@@ -6,21 +6,15 @@ const swipers = () => {
     //MAIN SWIPER
     const main = new Swiper(".main__swiper", {
 
-        slidesPerView: 7,
+        slidesPerView: 2,
         spaceBetween: 16,
-        
-        // breakpoints: {
-        //     640: {
-        //         slidesPerView: 2,
-        //     },
-        //     768: {
-        //         slidesPerView: 3,
-        //     },
-        //     1024: {
-        //         slidesPerView: 3.4,
-        //         spaceBetween: 20,
-        //     },
-        // },
+        loop: true,
+        freeMode: true,
+        breakpoints: {
+            767: {
+                slidesPerView: 7,
+            }
+        }
     });
 };
 

@@ -5,6 +5,8 @@
 @use "base/mixin" as *;
 @use "base/common";
 @use "components/main";
+@use "components/sidebar";
+@use "components/header";
 
 [class*="__container"] {
     max-width: 1450px;
