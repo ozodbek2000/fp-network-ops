@@ -7,6 +7,12 @@ $xxl: 48px;
     display: none !important;
 }
 
+.title {
+    font-family: var(--roboto-slab);
+    font-weight: 600;
+    font-size: 40px;
+}
+
 @media (max-width: 767px) {
     .mobile-only {
         display: flex !important;
@@ -28,6 +34,10 @@ $xxl: 48px;
             font-size: 14px;
             font-family: var(--roboto-slab);
             font-weight: 500;
+            text-transform: uppercase;
         }
+    }
+    .title {
+        font-size: 32px;
     }
 }

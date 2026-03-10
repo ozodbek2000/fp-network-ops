@@ -84,7 +84,7 @@
 @media (max-width: 767px) {
     .header {
         width: 100%;
-        position: fixed;
+        position: absolute;
         top: 0px;
         right: inherit;
         left: 0;
@@ -129,6 +129,19 @@
                 left: calc(50% - 9px);
                 top: calc(50% - 1px);
             }
+            &.active {
+                &::after {
+                    top: 11px;
+                    transform: rotate(-45deg);
+                }
+                &::before {
+                    bottom: 11px;
+                    transform: rotate(45deg);
+                }
+                span {
+                    transform: scale(0);
+                }
+            }
         }
 
         &__logo {
@@ -158,7 +171,7 @@
             &_search {
                 position: absolute;
                 top: calc(50% - 22px);
-                right: 15px;
+                right: 0px;
                 opacity: 0;
                 visibility: hidden;
                 transition: 0.3s ease all;
@@ -196,7 +209,11 @@
                 }
             }
         }
-        
+    }
+    .header-search {
+        input {
+            width: calc(100vw - 30px);
+        }
     }
 }
 input[type="search"]::-webkit-search-cancel-button {

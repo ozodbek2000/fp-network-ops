@@ -25,15 +25,25 @@ const toggle = () => {
 
     $(".header__burger").click(function (e) {
         $(".sidebar").toggleClass("active");
+        $(".header__burger").toggleClass("active");
     });
-    $(".search").click(function (e) {
-        $(".header__list_search").toggleClass("active");
+    $(".header__list_item.search").click(function (e) {
+        $(".header-search").toggleClass("active");
     });
     $(".sidebar__search").click(function (e) {
-        $(".sidebar__wrapper > .header__list_search").toggleClass("active");
+        $(".sidebar-search").toggleClass("active");
     });
     $(".search-close").click(function (e) {
-        $(".header__list_search").toggleClass("active");
+        $(".header__list_search").removeClass("active");
+    });
+    $(".service__grid_item").click(function (e) {
+        e.stopPropagation();
+        $(".service__grid_item").removeClass("active");
+        $(this).toggleClass("active");
+    });
+
+    $(document).on("click", function () {
+        $(".service__grid_item").removeClass("active");
     });
 };
 
