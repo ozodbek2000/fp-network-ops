@@ -1,5 +1,7 @@
 import "swiper/css/bundle";
 import Swiper from "swiper/bundle";
+import 'swiper/css/scrollbar';
+
 
 const swipers = () => {
     //MAIN SWIPER
@@ -35,6 +37,26 @@ const swipers = () => {
                 },
                 pagination: false,
                 loop: false,
+            },
+        },
+    });
+
+    //LICENSE SWIPER
+    const license = new Swiper(".license__swiper", {
+        slidesPerView: 3,
+        spaceBetween: 16,
+        scrollbar: {
+            el: ".license__scrollbar",
+            hide: false,
+        },
+        navigation: {
+            prevEl: ".license__navigation_prev",
+            nextEl: ".license__navigation_next",
+        },
+        breakpoints: {
+            767: {
+                slidesPerView: 4,
+                spaceBetween: 20,
             },
         },
     });

@@ -9,6 +9,8 @@
 @use "components/header";
 @use "components/service";
 @use "components/delivery";
+@use "components/facts";
+@use "components/license";
 
 [class*="__container"] {
     max-width: 1450px;

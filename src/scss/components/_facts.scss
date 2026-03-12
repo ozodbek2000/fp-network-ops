@@ -1,0 +1,119 @@
+.facts {
+    height: 100vh;
+    background: radial-gradient(
+        92.03% 263.82% at 92.03% 32.65%,
+        #2f5dab 0%,
+        #0d1424 100%
+    );
+    color: var(--white);
+    padding: 100px 0px 111px 0px;
+    position: relative;
+
+    & > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &__container {
+    }
+
+    &__title {
+        margin-bottom: 112px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 193px;
+
+        &_item {
+            &:nth-child(1) {
+                grid-column-start: 1;
+                grid-column-end: 4;
+                h3 {
+                    font-size: 250px;
+                }
+            }
+            h3 {
+                font-family: var(--roboto-slab);
+                font-size: 100px;
+                font-weight: 500;
+                margin-bottom: 24px;
+                color: var(--red);
+            }
+            p {
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 140%;
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    &__down {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .facts {
+        height: 100vh;
+        background: radial-gradient(
+            92.03% 263.82% at 92.03% 32.65%,
+            #2f5dab 0%,
+            #0d1424 100%
+        );
+        color: var(--white);
+        padding: 104px 0px 0px 0px;
+        position: relative;
+
+        & > img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        &__container {
+        }
+
+        &__title {
+            margin-bottom: 102px;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 64px;
+            column-gap: 15px;
+
+            &_item {
+                &:nth-child(1) {
+                    grid-column-start: inherit  ;
+                    grid-column-end: inherit    ;
+                    h3 {
+                        font-size: 64px;
+                    }
+                }
+                h3 {
+                    font-family: var(--roboto-slab);
+                    font-size: 64px;
+                    font-weight: 500;
+                    margin-bottom: 24px;
+                    color: var(--red);
+                }
+                p {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 140%;
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}

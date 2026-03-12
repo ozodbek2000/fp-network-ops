@@ -41,6 +41,15 @@
         font-size: 20px;
         line-height: 140%;
     }
+
+    &__down {
+        display: none;
+    }
+}
+.custom {
+    .delivery-service {
+        display: none;
+    }
 }
 .delivery-service {
     height: 50vh;
@@ -69,8 +78,8 @@
 
 @media (max-width: 767px) {
     .delivery {
+        position: relative;
         &__container {
-            position: relative;
         }
 
         &__service-title {
@@ -79,17 +88,18 @@
 
         &__service-subtitle {
             max-width: 580px;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 1.4;
         }
 
         &__delivery {
             height: 100vh;
             background-image: url(../img/webp/delivery-bg.webp);
-            background-position-x: calc(90%);
+            background-position-x: calc(73%);
             background-repeat: no-repeat;
             background-size: cover;
             color: var(--white);
+            position: relative;
         }
 
         &__content {
@@ -114,6 +124,10 @@
             font-size: 16px;
             line-height: 140%;
         }
+
+        &__down {
+            color: var(--white);
+        }
     }
     .delivery-service {
         height: 50vh;
@@ -126,7 +140,7 @@
 
         & > img {
             position: absolute;
-            top: calc(50% - 40px);
+            top: calc(50% - 0px);
             right: -80px;
         }
 
@@ -138,6 +152,33 @@
             flex: 0 1 50%;
             text-align: center;
             position: relative;
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .custom {
+        padding: 104px 0px 0px 0px;
+        height: 100vh;
+        position: relative;
+
+        .delivery-service {
+            display: flex;
+            flex-direction: column;
+            gap: 57px;
+            & > img {
+                height: 32px;
+                width: 315px;
+                right: 16px;
+                
+            }
+        }
+
+        &__down {
+            h3 {
+                color: var(--grey-3);
+            }
         }
     }
 }
