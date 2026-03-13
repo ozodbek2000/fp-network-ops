@@ -1,7 +1,7 @@
 <header class="header">
     <div class="header__container">
         <a href="index.html" class="header__logo mobile-only">
-            <img src="../img/webp/logo-mobile.webp" alt="logo" />
+            <img src="../img/svg/logo-mobile.svg" alt="logo" />
         </a>
         <nav class="header__nav">
             <ul class="header__list">
@@ -11,11 +11,24 @@
                 <li class="header__list_item desktop-only">
                     <a href="##">Контакты</a>
                 </li>
-                <li class="header__list_item search ">
+                <li class="header__list_item search">
                     <a href="##"
                         ><span class="desktop-only">Поиск</span>
-                        <img src="../img/svg/search.svg" alt="search"
-                    /></a>
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M3 21L7.35 16.65M5 11C5 15.4183 8.58172 19 13 19C17.4183 19 21 15.4183 21 11C21 6.58172 17.4183 3 13 3C8.58172 3 5 6.58172 5 11Z"
+                                stroke="white"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </a>
                 </li>
                 <li class="header__list_item desktop-only">
                     <a href="tel:+998712673725">+998 71 267 37 25</a>
@@ -25,8 +38,16 @@
                 </li>
                 <div class="header__list_search header-search">
                     <div class="header__list_search-wrapper">
-                        <input placeholder="Поиск" name="search" type="search">
-                        <img class="search-close" src="../img/svg/input-close.svg" alt="input-close">
+                        <input
+                            placeholder="Поиск"
+                            name="search"
+                            type="search"
+                        />
+                        <img
+                            class="search-close"
+                            src="../img/svg/input-close.svg"
+                            alt="input-close"
+                        />
                     </div>
                 </div>
             </ul>

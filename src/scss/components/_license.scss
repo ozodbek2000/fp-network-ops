@@ -17,25 +17,34 @@
     &__columns {
         display: flex;
         max-height: 343px;
+        gap: 54px;
     }
 
-    &__empty {
+    // &__empty {
+
+    // }
+
+    &__navigations {
+        // position: absolute;
+        // bottom: 0;
+        // left: -34%;
         flex: 0 1 34%;
         display: flex;
         z-index: 3;
         align-items: flex-end;
     }
 
-    &__navigations {
-        position: absolute;
-        bottom: 0;
-        left: -34%;
-    }
-
     &__navigation {
         display: flex;
         align-items: center;
         gap: 24px;
+        margin-right: 66px;
+
+        svg.swiper-button-disabled {
+            path {
+                stroke: var(--grey-2);
+            }
+        }
 
         &_prev {
             cursor: pointer;
@@ -47,13 +56,18 @@
     }
 
     &__num {
-
         &_wrapper {
             flex: 1 1 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
             max-width: 410px;
+            gap: 12px;
+
+            span {
+                font-size: 20px;
+                font-weight: 500;
+            }
         }
 
         &_current {
@@ -64,10 +78,16 @@
     }
 
     &__scrollbar {
-        height: 5px;
+        height: 2px;
         width: 100%;
         max-width: 340px;
         z-index: 2;
+        background: rgba(0, 0, 0, 0.1); // track color
+        .swiper-scrollbar-drag {
+            background: var(--blue); // drag handle color
+            border-radius: 0;
+            height: 100%;
+        }
     }
 
     &__swiper {
@@ -91,10 +111,183 @@
 
     &__slide {
         height: 343px;
+        position: relative;
+        cursor: pointer;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(2.5px);
+            border-radius: 6px;
+        }
+
+        &.swiper-slide-active {
+            &::before {
+                display: none;
+            }
+        }
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+    }
+}
+
+@media (max-width: 767px) {
+    .license {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+
+        &__container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__title {
+            margin-bottom: 24px;
+        }
+
+        &__columns {
+            display: flex;
+            flex-direction: column-reverse;
+            max-height: inherit;
+            gap: 24px;
+        }
+
+        // &__empty {
+
+        // }
+
+        &__navigations {
+            // position: absolute;
+            // bottom: 0;
+            // left: -34%;
+            flex: inherit;
+            display: flex;
+            z-index: 3;
+            align-items: flex-end;
+        }
+
+        &__navigation {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-right: 66px;
+            display: none;
+            margin: 0;
+
+            svg.swiper-button-disabled {
+                path {
+                    stroke: var(--grey-2);
+                }
+            }
+
+            &_prev {
+                cursor: pointer;
+            }
+
+            &_next {
+                cursor: pointer;
+            }
+        }
+
+        &__num {
+            &_wrapper {
+                flex: 1 1 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 410px;
+                gap: 12px;
+
+                span {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+
+            &_current {
+            }
+
+            &_overall {
+            }
+        }
+
+        &__scrollbar {
+            height: 2px;
+            width: 100%;
+            max-width: 340px;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.1);
+            .swiper-scrollbar-drag {
+                background: var(--blue);
+                border-radius: 0;
+                height: 100%;
+            }
+        }
+
+        &__swiper {
+            flex: 0 1 66%;
+            min-width: 0;
+            position: relative;
+            &::before {
+                content: "";
+                width: 100%;
+                height: 400px;
+                background-color: var(--white);
+                position: absolute;
+                top: 0;
+                left: -100%;
+                z-index: 2;
+            }
+        }
+
+        &__wrapper {
+        }
+
+        &__slide {
+            height: 343px;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(2.5px);
+                border-radius: 6px;
+            }
+
+            &.swiper-slide-active {
+                &::before {
+                    display: none;
+                }
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__down {
+            h3 {
+                color: var(--grey-3);
+            }
+        }
+
     }
 }

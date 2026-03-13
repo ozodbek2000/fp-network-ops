@@ -13,12 +13,18 @@ $xxl: 48px;
     font-size: 40px;
 }
 
+.page-title {
+    font-size: 72px;
+    font-family: var(--roboto-slab);
+    font-weight: 600;
+}
+
 @media (max-width: 767px) {
     .mobile-only {
         display: flex !important;
     }
     .desktop-only {
-        display: none;
+        display: none !important;
     }
     .down {
         flex-direction: column;
@@ -38,6 +44,9 @@ $xxl: 48px;
         }
     }
     .title {
+        font-size: 32px;
+    }
+    .page-title {
         font-size: 32px;
     }
 }

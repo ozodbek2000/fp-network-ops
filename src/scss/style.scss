@@ -11,6 +11,11 @@
 @use "components/delivery";
 @use "components/facts";
 @use "components/license";
+@use "components/contacts";
+@use "components/first";
+@use "components/content";
+@use "components/partners";
+@use "components/gallery";
 
 [class*="__container"] {
     max-width: 1450px;
@@ -18,7 +23,7 @@
     padding: 0px 15px;
     min-width: 0;
 }
+
 body {
-    color: 20px;
     font-family: var(--roboto);
 }

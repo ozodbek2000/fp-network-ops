@@ -1,0 +1,90 @@
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.partners {
+    background-color: var(--grey-1);
+    padding: 80px 0px 180px 0px;
+
+    &__title {
+        margin-bottom: 48px;
+    }
+
+    &__slider {
+        overflow: hidden;
+    }
+
+    &__track {
+        display: inline-flex;
+        align-items: center;
+        gap: 32px;
+        width: max-content;
+        animation: marquee 28s linear infinite;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    &__slide {
+        background-color: var(--white);
+        width: 360px;
+        height: 240px;
+        padding: 0px 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .partners {
+        background-color: var(--grey-1);
+        padding: 48px 0px 122px 0px;
+
+        &__title {
+            margin-bottom: 32px;
+        }
+
+        &__slider {
+            overflow: hidden;
+        }
+
+        &__track {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            width: max-content;
+            animation: marquee 28s linear infinite;
+
+            &:hover {
+                animation-play-state: paused; // pause on hover — nice UX touch
+            }
+        }
+
+        &__slide {
+            background-color: var(--white);
+            width: 225px;
+            height: 150px;
+            padding: 0px 37px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

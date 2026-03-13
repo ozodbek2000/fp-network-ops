@@ -30,6 +30,10 @@ const toggle = () => {
     $(".header__list_item.search").click(function (e) {
         $(".header-search").toggleClass("active");
     });
+    $(".sidebar__list_menu").click(function(e) {
+        $(this).closest(".sidebar__list-2").removeClass("active");
+        $('.sidebar__list_item > a').removeClass("active");
+    });
     $(".sidebar__search").click(function (e) {
         $(".sidebar-search").toggleClass("active");
     });
@@ -38,11 +42,14 @@ const toggle = () => {
     });
     $(".service__grid_item").click(function (e) {
         e.stopPropagation();
+        var isActive = $(this).hasClass("active");
         $(".service__grid_item").removeClass("active");
-        $(this).toggleClass("active");
+        if (!isActive) {
+            $(this).addClass("active");
+        }
     });
-
-    $(document).on("click", function () {
+    
+    $(document).click(function () {
         $(".service__grid_item").removeClass("active");
     });
 };

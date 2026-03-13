@@ -1,7 +1,6 @@
 import "swiper/css/bundle";
 import Swiper from "swiper/bundle";
-import 'swiper/css/scrollbar';
-
+import "swiper/css/scrollbar";
 
 const swipers = () => {
     //MAIN SWIPER
@@ -9,10 +8,10 @@ const swipers = () => {
         slidesPerView: 2,
         spaceBetween: 16,
         loop: true,
-        freeMode: true,
         breakpoints: {
             767: {
                 slidesPerView: 7,
+                freeMode: true,
             },
         },
     });
@@ -43,11 +42,13 @@ const swipers = () => {
 
     //LICENSE SWIPER
     const license = new Swiper(".license__swiper", {
-        slidesPerView: 3,
+        slidesPerView: 1.2,
         spaceBetween: 16,
+        loop: true,
         scrollbar: {
-            el: ".license__scrollbar",
+            el: document.querySelector(".license__scrollbar"), // direct DOM reference
             hide: false,
+            draggable: true,
         },
         navigation: {
             prevEl: ".license__navigation_prev",
@@ -56,6 +57,22 @@ const swipers = () => {
         breakpoints: {
             767: {
                 slidesPerView: 4,
+                spaceBetween: 20,
+            },
+        },
+    });
+
+    //GALLERY SWIPER
+    const gallery = new Swiper(".gallery__swiper", {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        navigation: {
+            prevEl: ".gallery__navigations_prev",
+            nextEl: ".gallery__navigations_next",
+        },
+        breakpoints: {
+            767: {
+                slidesPerView: 3,
                 spaceBetween: 20,
             },
         },

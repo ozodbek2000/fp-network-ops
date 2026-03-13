@@ -21,12 +21,31 @@
         gap: 91px;
         justify-content: flex-end;
         position: relative;
+
+        &.dark {
+            .header__list_item {
+                a {
+                    color: var(--dark-blue);
+                }
+                &:not(:last-child)::before {
+                    
+                    background-color: rgba($color: #15213B, $alpha: 0.3);
+                }
+                svg {
+                    path {
+                        stroke: var(--dark-blue);
+                    }
+                }
+            }
+        }
+
         &_item {
             position: relative;
             a {
                 display: flex;
                 align-items: center;
                 gap: 12px;
+                transition: 0.3s ease all;
             }
             &:not(:last-child)::before {
                 content: "";
@@ -36,6 +55,12 @@
                 height: 20px;
                 width: 2px;
                 background-color: rgba($color: #fff, $alpha: 0.3);
+            }
+
+            svg {
+                path {
+                    transition: 0.3s ease all;
+                }
             }
         }
 
@@ -82,6 +107,9 @@
 }
 
 @media (max-width: 767px) {
+    .header-white {
+        background-color: var(--white);
+    }
     .header {
         width: 100%;
         position: absolute;
@@ -101,6 +129,7 @@
         }
 
         &__burger {
+            transition: 0.3s ease all;
             position: relative;
             width: 24px;
             height: 24px;
@@ -214,6 +243,10 @@
         input {
             width: calc(100vw - 30px);
         }
+    }
+    .header-white-wrapper {
+        max-width: inherit;
+        background-color: var(--white);
     }
 }
 input[type="search"]::-webkit-search-cancel-button {

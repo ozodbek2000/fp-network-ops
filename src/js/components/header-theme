@@ -1,0 +1,46 @@
+import $ from "jquery";
+
+const headerTheme = () => {
+    if ($(window).width() < 1024) return;
+
+    const $headerList = $(".header__list");
+    const allSections = [...document.querySelectorAll("section, [data-section]")]
+        .filter((section) => getComputedStyle(section).display !== "none")
+        .filter((section) => section.dataset.ignore !== "true");
+
+    const darkSections = allSections.filter((section) => section.dataset.index === "dark");
+
+    if (!$headerList.length || !darkSections.length) return;
+
+    const darkObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    $headerList.addClass("dark");
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    const lightObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    $headerList.removeClass("dark");
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    allSections.forEach((section) => {
+        if (section.dataset.index === "dark") {
+            darkObserver.observe(section);
+        } else {
+            lightObserver.observe(section);
+        }
+    });
+};
+
+export default headerTheme;

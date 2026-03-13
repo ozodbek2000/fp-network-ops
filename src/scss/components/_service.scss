@@ -27,16 +27,17 @@
             align-items: flex-end !important;
             border-radius: 6px;
             overflow: hidden;
-
-            &:hover {
-                .service__grid_item-content {
-                    max-height: 201px;
-                }
-                p {
-                    max-height: 201px;
-                    visibility: visible;
-                    opacity: 1;
-                    padding-top: 12px;
+            @media (hover: hover) {
+                &:hover {
+                    .service__grid_item-content {
+                        max-height: 201px;
+                    }
+                    p {
+                        max-height: 201px;
+                        visibility: visible;
+                        opacity: 1;
+                        padding-top: 12px;
+                    }
                 }
             }
 
@@ -232,7 +233,7 @@
                 background-color: var(--white);
                 border-radius: 50%;
                 border: 3px solid var(--blue);
-            }   
+            }
         }
     }
 }
