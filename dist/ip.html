@@ -107,7 +107,7 @@
                         />
                     </svg>
                 </a>
-                <ul class="sidebar__list-2">
+                <ul class="sidebar__list-2 fixed">
                     <li class="sidebar__list_menu mobile-only">
                         <img src="../img/svg/chevron-left.svg" alt="chevron-left">
                         <span>Меню</span>
@@ -116,7 +116,7 @@
                     <li class="sidebar__list_item-2">
                         <a href="##">TDM телефония</a>
                     </li>
-                    <li class="sidebar__list_item-2">
+                    <li class="sidebar__list_item-2 fixed">
                         <a href="/ip.html">IP телефония</a>
                     </li>
                     <li class="sidebar__list_item-2">
@@ -228,6 +228,9 @@
     </nav>
 </aside>
 
+<div class="sidebar__overlay">
+</div>
+
         <main class="wrapper">
             <section class="first">
     <img src="../img/webp/ip-bg.webp" alt="ip-bg" class="first__bg">
@@ -235,7 +238,7 @@
         <h1 class="first__title page-title">IP телефония</h1>
     </div>
 </section>
-            <section class="content">
+            <section class="content" data-index="dark">
     <div class="content__container">
         <p style="color: var(--blue)">
             IP-телефонные аппараты – это современный и эффективный метод связи,
@@ -300,31 +303,31 @@
     </div>
 </section>
 
-            <section class="partners">
+            <section class="partners" data-index="dark">
     <div class="partners__container">
         <div class="partners__title title">Наши партнеры</div>
         <div class="partners__slider">
             <div class="partners__track">
-                <div class="partners__slide"><img src="../img/webp/slide01.webp" alt="slide" /></div>
-                <div class="partners__slide"><img src="../img/webp/slide02.webp" alt="slide" /></div>
-                <div class="partners__slide"><img src="../img/webp/slide03.webp" alt="slide" /></div>
-                <div class="partners__slide"><img src="../img/webp/slide04.webp" alt="slide" /></div>
-                <div class="partners__slide"><img src="../img/webp/slide05.webp" alt="slide" /></div>
-                <div class="partners__slide"><img src="../img/webp/slide06.webp" alt="slide" /></div>
-                <div class="partners__slide"><img src="../img/webp/slide07.webp" alt="slide" /></div>
+                <div class="partners__slide"><img src="../img/no-optimize/partner01.png" alt="slide" /></div>
+                <div class="partners__slide"><img src="../img/no-optimize/partner02.png" alt="slide" /></div>
+                <div class="partners__slide"><img src="../img/no-optimize/partner03.png" alt="slide" /></div>
+                <div class="partners__slide"><img src="../img/no-optimize/partner04.png" alt="slide" /></div>
+                <div class="partners__slide"><img src="../img/no-optimize/partner05.png" alt="slide" /></div>
+                <div class="partners__slide"><img src="../img/no-optimize/partner06.png" alt="slide" /></div>
+                <div class="partners__slide"><img src="../img/no-optimize/partner07.png" alt="slide" /></div>
                 <!-- Duplicates for seamless loop -->
-                <div class="partners__slide" aria-hidden="true"><img src="../img/webp/slide01.webp" alt="" /></div>
-                <div class="partners__slide" aria-hidden="true"><img src="../img/webp/slide02.webp" alt="" /></div>
-                <div class="partners__slide" aria-hidden="true"><img src="../img/webp/slide03.webp" alt="" /></div>
-                <div class="partners__slide" aria-hidden="true"><img src="../img/webp/slide04.webp" alt="" /></div>
-                <div class="partners__slide" aria-hidden="true"><img src="../img/webp/slide05.webp" alt="" /></div>
-                <div class="partners__slide" aria-hidden="true"><img src="../img/webp/slide06.webp" alt="" /></div>
-                <div class="partners__slide" aria-hidden="true"><img src="../img/webp/slide07.webp" alt="" /></div>
+                <div class="partners__slide" aria-hidden="true"><img src="../img/no-optimize/partner01.png" alt="" /></div>
+                <div class="partners__slide" aria-hidden="true"><img src="../img/no-optimize/partner02.png" alt="" /></div>
+                <div class="partners__slide" aria-hidden="true"><img src="../img/no-optimize/partner03.png" alt="" /></div>
+                <div class="partners__slide" aria-hidden="true"><img src="../img/no-optimize/partner04.png" alt="" /></div>
+                <div class="partners__slide" aria-hidden="true"><img src="../img/no-optimize/partner05.png" alt="" /></div>
+                <div class="partners__slide" aria-hidden="true"><img src="../img/no-optimize/partner06.png" alt="" /></div>
+                <div class="partners__slide" aria-hidden="true"><img src="../img/no-optimize/partner07.png" alt="" /></div>
             </div>
         </div>
     </div>
 </section>
-            <section class="gallery">
+            <section class="gallery" data-index="dark">
     <div class="gallery__container">
         <div class="gallery__titlebox">
             <div class="gallery__title title">Галерея</div>
@@ -388,7 +391,7 @@
     </div>
 </section>
 
-            <section class="contacts" id="contacts">
+            <footer class="contacts" id="contacts" data-section>
     <img src="../img/webp/contacts-bg.webp" alt="contacts-bg" />
     <div class="contacts__container">
         <div class="contacts__title">Контакты</div>
@@ -463,7 +466,11 @@
                 </svg>
             </a>
         </div>
-        <a href="#main" class="contacts__down mobile-only">
+        <a
+            href="#main"
+            class="contacts__down"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+        >
             <img src="../img/svg/chevron-white-up.svg" alt="chevron-up" />
             <span>в начало</span>
         </a>
@@ -487,7 +494,7 @@
             </div>
         </div>
     </div>
-</section>
+</footer>
 
 
         </main>

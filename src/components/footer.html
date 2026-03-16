@@ -1,4 +1,4 @@
-<section class="contacts" id="contacts">
+<footer class="contacts" id="contacts" data-section>
     <img src="../img/webp/contacts-bg.webp" alt="contacts-bg" />
     <div class="contacts__container">
         <div class="contacts__title">Контакты</div>
@@ -73,7 +73,11 @@
                 </svg>
             </a>
         </div>
-        <a href="#main" class="contacts__down mobile-only">
+        <a
+            href="#main"
+            class="contacts__down"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+        >
             <img src="../img/svg/chevron-white-up.svg" alt="chevron-up" />
             <span>в начало</span>
         </a>
@@ -97,4 +101,4 @@
             </div>
         </div>
     </div>
-</section>
+</footer>

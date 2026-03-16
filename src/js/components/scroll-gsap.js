@@ -6,7 +6,7 @@ const scrollGsap = () => {
     if (!wrapper) return;
 
     const allSections = Array.from(
-        document.querySelectorAll("main.wrapper > section[id]")
+        document.querySelectorAll("main.wrapper > section[id], main.wrapper > footer[id]")
     );
 
     if (!allSections.length) return;

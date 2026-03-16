@@ -25,7 +25,6 @@ const swipers = () => {
             el: ".service__pagination",
             clickable: true,
         },
-        freeMode: true,
         breakpoints: {
             767: {
                 slidesPerView: 4,
@@ -36,19 +35,20 @@ const swipers = () => {
                 },
                 pagination: false,
                 loop: false,
+                freeMode: true,
             },
         },
     });
 
-    //LICENSE SWIPER
     const license = new Swiper(".license__swiper", {
         slidesPerView: 1.2,
         spaceBetween: 16,
         loop: true,
         scrollbar: {
-            el: document.querySelector(".license__scrollbar"), // direct DOM reference
+            el: document.querySelector(".license__scrollbar"),
             hide: false,
             draggable: true,
+            dragSize: 68,
         },
         navigation: {
             prevEl: ".license__navigation_prev",
@@ -58,6 +58,15 @@ const swipers = () => {
             767: {
                 slidesPerView: 4,
                 spaceBetween: 20,
+            },
+        },
+        on: {
+            slideChange(swiper) {
+                const current = swiper.realIndex + 1;
+                const padded = String(current).padStart(2, "0");
+                document.querySelector(
+                    ".license__num_current span"
+                ).textContent = padded;
             },
         },
     });

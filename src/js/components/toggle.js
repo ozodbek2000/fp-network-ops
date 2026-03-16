@@ -9,6 +9,7 @@ const toggle = () => {
 
         $(".sidebar__list_item > a").removeClass("active");
         $(".sidebar__list-2").removeClass("active");
+        $(".sidebar__overlay").addClass("active");
 
         if (!isActive) {
             $(this).addClass("active");
@@ -20,6 +21,7 @@ const toggle = () => {
         if (!$(event.target).closest(".sidebar__list-2").length) {
             $(".sidebar__list_item > a").removeClass("active");
             $(".sidebar__list-2").removeClass("active");
+            $(".sidebar__overlay").removeClass("active");
         }
     });
 
@@ -30,9 +32,19 @@ const toggle = () => {
     $(".header__list_item.search").click(function (e) {
         $(".header-search").toggleClass("active");
     });
-    $(".sidebar__list_menu").click(function(e) {
-        $(this).closest(".sidebar__list-2").removeClass("active");
-        $('.sidebar__list_item > a').removeClass("active");
+    $(".sidebar__list_menu").click(function (e) {
+        if ($(window).width() > 768) {
+            $(this).closest(".sidebar__list-2").addClass("active");
+            $(".sidebar__list-2").removeClass("fixed");
+            $(".sidebar__overlay").toggleClass("active");
+        }
+    });
+    $(".sidebar__list_menu").click(function (e) {
+        if ($(window).width() <= 768) {
+            $(this).closest(".sidebar__list-2").removeClass("active");
+            $(".sidebar__list_item > a").removeClass("active");
+            $(".sidebar__list-2").removeClass("fixed");
+        }
     });
     $(".sidebar__search").click(function (e) {
         $(".sidebar-search").toggleClass("active");
@@ -48,7 +60,7 @@ const toggle = () => {
             $(this).addClass("active");
         }
     });
-    
+
     $(document).click(function () {
         $(".service__grid_item").removeClass("active");
     });

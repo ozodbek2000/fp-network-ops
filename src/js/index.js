@@ -4,6 +4,7 @@ import swipers from "./components/swipers";
 import fancybox from "./components/fancybox";
 import scrollGsap from "./components/scroll-gsap";
 import headerTheme from "./components/header-theme";
+import numbers from "./components/numbers";
 
 $(document).ready(function () {
     toggle();
@@ -11,4 +12,5 @@ $(document).ready(function () {
     fancybox();
     scrollGsap();
     headerTheme()
+    numbers()
 });
