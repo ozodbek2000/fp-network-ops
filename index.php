@@ -15,98 +15,27 @@
 			class="main__bg"
 		/>
 		<div class="main__container">
-			<h1 class="main__title">Монтаж систем безопасности</h1>
+			<h1 class="main__title"><?= pll__("Монтаж систем безопасности");?></h1>
 			<div class="main__subtitle subtitle">
-				<span>Проект под любой бюджет.</span>
-				<span>Строительство видеосистем под ключ.</span>
-				<span>Только проверенное оборудование.</span>
+				<span><?= pll__("Проект под любой бюджет."); ?></span>
+				<span><?= pll__("Строительство видеосистем под ключ."); ?></span>
+				<span><?= pll__("Только проверенное оборудование."); ?></span>
 			</div>
 			<div class="main__swiper swiper-container">
 				<div class="main__wrapper swiper-wrapper">
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner01.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner02.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner03.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner04.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner05.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner06.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner07.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner01.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner02.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner03.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner04.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner05.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner06.webp"
-							alt="inform-texnika"
-						/>
-					</div>
-					<div class="main__slide swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/partner07.webp"
-							alt="inform-texnika"
-						/>
-					</div>
+					
+					<?php if( have_rows('partners') ): ?>
+						<?php for( $i = 0; $i < 2; $i++ ): ?>
+							<?php while( have_rows('partners') ): the_row(); 
+								$image = get_sub_field('partner');
+								?>
+								<div class="main__slide swiper-slide">
+									<img src="<?= $image; ?>" alt="inform-texnika" />
+								</div>
+							<?php endwhile; ?>
+						<?php endfor; ?>
+					<?php endif; ?>
+					
 				</div>
 			</div>
 			<a href="#service" class="main__down mobile-only down">
@@ -114,146 +43,44 @@
 					src="<?= bloginfo("template_url"); ?>/assets/img/svg/double-chevron-down.svg"
 					alt="double-chevron-down"
 				/>
-				<h3>Наши услуги</h3>
+				<h3><?= pll__("Наши услуги"); ?></h3>
 			</a>
 		</div>
 	</section>
 	<section class="service" id="service">
 		<img src="<?= bloginfo("template_url"); ?>/assets/img/svg/vector.svg" alt="vector" />
 		<div class="service__container">
-			<div class="service__title title">Наши услуги</div>
+			<div class="service__title title"><?= pll__("Наши услуги"); ?></div>
 			<div class="service__grid service__swiper swiper-container">
 				<div class="service__wrapper swiper-wrapper">
-					<div class="service__grid_item swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/service01.webp"
-							alt="service"
-						/>
-						<div class="service__grid_item-content">
-							<h3 class="service__grid_item-title">
-								Проектирование и внедрение
-							</h3>
-							<p>
-								Проектирование и строительство
-								структурированных кабельных сетей (СКС)
-							</p>
+
+					<?php if( have_rows('services') ): ?>
+						<?php while( have_rows('services') ): the_row(); 
+
+							$title = get_sub_field('title');
+							$text = get_sub_field('text');
+							$background = get_sub_field('background');
+
+							?>
+
+						<div class="service__grid_item swiper-slide">
+							<img
+								src="<?= $background; ?>"
+								alt="service"
+							/>
+							<div class="service__grid_item-content">
+								<h3 class="service__grid_item-title">
+									<?= $title; ?>
+								</h3>
+								<p>
+									<?= $text; ?>
+								</p>
+							</div>
 						</div>
-					</div>
-					<div class="service__grid_item swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/service02.webp"
-							alt="service"
-						/>
-						<div class="service__grid_item-content">
-							<h3 class="service__grid_item-title">
-								Системы связи
-							</h3>
-							<p>
-								Обеспечение информационным и
-								технологическим взаимодействием между
-								устройствами и пользователями.
-							</p>
-						</div>
-					</div>
-					<div class="service__grid_item swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/service03.webp"
-							alt="service"
-						/>
-						<div class="service__grid_item-content">
-							<h3 class="service__grid_item-title">
-								Сети передачи данных
-							</h3>
-							<p>
-								СКС и интеллектуальные СКС (ИСКС),
-								Беспроводные сети передачи данных,
-								Системы управления и мониторинга сетью.
-								Проектирование и строительство сетей
-								передачи данных (СПД)
-							</p>
-						</div>
-					</div>
-					<div class="service__grid_item swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/service04.webp"
-							alt="service"
-						/>
-						<div class="service__grid_item-content">
-							<h3 class="service__grid_item-title">
-								Системы управляемого доступа (СКУД)
-							</h3>
-							<p>
-								Проектирование, монтаж, обслуживание
-								систем управляемого доступа (СКУД)
-							</p>
-						</div>
-					</div>
-					<div class="service__grid_item swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/service05.webp"
-							alt="service"
-						/>
-						<div class="service__grid_item-content">
-							<h3 class="service__grid_item-title">
-								Видеонаблюдение
-							</h3>
-							<p>
-								Проектирование и строительство систем
-								видеонаблюдения, интегрированных в
-								единую систему безопасности
-							</p>
-						</div>
-					</div>
-					<div class="service__grid_item swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/service06.webp"
-							alt="service"
-						/>
-						<div class="service__grid_item-content">
-							<h3 class="service__grid_item-title">
-								Охрана периметра
-							</h3>
-							<p>
-								Комплекс средств и мероприятий,
-								предназначенных для предотвращения
-								несанкционированного проникновения на
-								территорию объекта нарушителя.
-							</p>
-						</div>
-					</div>
-					<div class="service__grid_item swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/service07.webp"
-							alt="service"
-						/>
-						<div class="service__grid_item-content">
-							<h3 class="service__grid_item-title">
-								Источник бесперебойного питания (ИБП)
-							</h3>
-							<p>
-								Обеспечение надёжного питания
-								оборудования при отключении
-								электроэнергии.
-							</p>
-						</div>
-					</div>
-					<div class="service__grid_item swiper-slide">
-						<img
-							src="<?= bloginfo("template_url"); ?>/assets/img/webp/service08.webp"
-							alt="service"
-						/>
-						<div class="service__grid_item-content">
-							<h3 class="service__grid_item-title">
-								Пожарная сигнализация и пожаротушение
-							</h3>
-							<p>
-								Проектирование, монтаж, наладка, ремонт
-								и техническое обслуживание средств
-								противопожарной автоматики
-								охранно-пожарной сигнализации
-							</p>
-						</div>
-					</div>
+
+						<?php endwhile; ?>
+					<?php endif; ?>
+
 				</div>
 				<div
 					class="service__pagination swiper-pagination"
@@ -264,7 +91,7 @@
 					src="<?= bloginfo("template_url"); ?>/assets/img/svg/double-chevron-down.svg"
 					alt="double-chevron-down"
 				/>
-				<h3>сервис</h3>
+				<h3><?= pll__("Сервис"); ?></h3>
 			</a>
 		</div>
 	</section>
@@ -277,11 +104,10 @@
 				<img src="<?= bloginfo("template_url"); ?>/assets/img/svg/custom.svg" alt="custom" />
 				<div class="delivery-service__content">
 					<h2 class="delivery__service-title title">
-						Сервис
+						<?= pll__("Сервис"); ?>
 					</h2>
 					<div class="delivery__service-subtitle">
-						Ремонт и сервисное обслуживание
-						специализированного оборудования CUSTOM (Италия)
+						<?= pll__("Ремонт и сервисное обслуживание специализированного оборудования CUSTOM (Италия)"); ?>
 					</div>
 				</div>
 				<div class="delivery-service__image">
@@ -297,7 +123,7 @@
 				src="<?= bloginfo("template_url"); ?>/assets/img/svg/chevron-down-white.svg"
 				alt="double-chevron-down"
 			/>
-			<h3>поставка и монтаж</h3>
+			<h3><?= pll__("поставка и монтаж"); ?></h3>
 		</a>
 	</section>
 	<section class="delivery" id="delivery" data-index="dark">
@@ -306,11 +132,10 @@
 				<img src="<?= bloginfo("template_url"); ?>/assets/img/svg/custom.svg" alt="custom" />
 				<div class="delivery-service__content">
 					<h2 class="delivery__service-title title">
-						Сервис
+						<?= pll__("Сервис"); ?>
 					</h2>
 					<div class="delivery__service-subtitle">
-						Ремонт и сервисное обслуживание
-						специализированного оборудования CUSTOM (Италия)
+						<?= pll__("Ремонт и сервисное обслуживание специализированного оборудования CUSTOM (Италия)"); ?>
 					</div>
 				</div>
 				<div class="delivery-service__image">
@@ -325,11 +150,10 @@
 			<div class="delivery__container">
 				<div class="delivery__content">
 					<div class="delivery__title title">
-						Поставка и монтаж
+						<?= pll__("поставка и монтаж"); ?>
 					</div>
 					<div class="delivery__text">
-						Оборудование и материалы непосредственно от
-						производителей
+						<?= pll__("Оборудование и материалы непосредственно от производителей"); ?>
 					</div>
 				</div>
 			</div>
@@ -339,40 +163,34 @@
 				src="<?= bloginfo("template_url"); ?>/assets/img/svg/double-chevron-down.svg"
 				alt="double-chevron-down"
 			/>
-			<h3>факты о компании</h3>
+			<h3><?= pll__("факты о компании"); ?></h3>
 		</a>
 	</section>
 	<section class="facts" id="facts">
 		<img src="<?= bloginfo("template_url"); ?>/assets/img/webp/facts-bg.webp" alt="facts-bg" />
 		<div class="facts__container">
-			<h2 class="facts__title title">Факты о компании</h2>
+			<h2 class="facts__title title"><?= pll__("факты о компании"); ?></h2>
 			<div class="facts__grid">
 				<div class="facts__grid_item">
-					<h3>10</h3>
-					<p>лет опыта на рынке Узбекистана</p>
+					<h3><?= pll__("10"); ?></h3>
+					<p><?= pll__("лет опыта на рынке Узбекистана"); ?></p>
 				</div>
 				<div class="facts__grid_item">
-					<h3>23</h3>
+					<h3><?= pll__("23"); ?></h3>
 					<p>
-						Электромонтажные работы. <br /><span
-							>25 объектов</span
-						>
+						<?= pll__("Электромонтажные работы. <br /><span >25 объектов</span >"); ?>
 					</p>
 				</div>
 				<div class="facts__grid_item">
-					<h3>332</h3>
+					<h3><?= pll__("332"); ?></h3>
 					<p>
-						Пуско-наладочные работы. <br /><span
-							>350 объектов</span
-						>
+						<?= pll__("Пуско-наладочные работы. <br /><span >350 объектов</span >"); ?>
 					</p>
 				</div>
 				<div class="facts__grid_item">
-					<h3>205</h3>
+					<h3><?= pll__("205"); ?></h3>
 					<p>
-						Систем оповещения установлено. <br /><span
-							>220 объектов</span
-						>
+						<?= pll__("Систем оповещения установлено. <br /><span >220 объектов</span >"); ?>
 					</p>
 				</div>
 			</div>
@@ -381,13 +199,13 @@
 					src="<?= bloginfo("template_url"); ?>/assets/img/svg/double-chevron-down.svg"
 					alt="double-chevron-down"
 				/>
-				<h3>лицензии и сертификаты</h3>
+				<h3><?= pll__("лицензии и сертификаты"); ?></h3>
 			</a>
 		</div>
 	</section>
 	<section class="license" id="license" data-index="dark">
 		<div class="license__container">
-			<h3 class="license__title title">Лицензии и сертификаты</h3>
+			<h3 class="license__title title"><?= pll__("лицензии и сертификаты"); ?></h3>
 			<div class="license__columns">
 				<div class="license__navigations">
 					<div class="license__navigation">
@@ -437,36 +255,23 @@
 				<!-- <div class="license__empty"></div> -->
 				<div class="license__swiper swiper-container">
 					<div class="license__wrapper swiper-wrapper">
-						<div class="license__slide swiper-slide">
-							<img
-								src="<?= bloginfo("template_url"); ?>/assets/img/webp/certificate01.webp"
-								alt="certificate"
-							/>
-						</div>
-						<div class="license__slide swiper-slide">
-							<img
-								src="<?= bloginfo("template_url"); ?>/assets/img/webp/certificate02.webp"
-								alt="certificate"
-							/>
-						</div>
-						<div class="license__slide swiper-slide">
-							<img
-								src="<?= bloginfo("template_url"); ?>/assets/img/webp/certificate03.webp"
-								alt="certificate"
-							/>
-						</div>
-						<div class="license__slide swiper-slide">
-							<img
-								src="<?= bloginfo("template_url"); ?>/assets/img/webp/certificate04.webp"
-								alt="certificate"
-							/>
-						</div>
-						<div class="license__slide swiper-slide">
-							<img
-								src="<?= bloginfo("template_url"); ?>/assets/img/webp/certificate05.webp"
-								alt="certificate"
-							/>
-						</div>
+
+						<?php if( have_rows('certificates') ): ?>
+							<?php while( have_rows('certificates') ): the_row(); 
+								$certificate = get_sub_field('certificate');
+								?>
+
+								<div class="license__slide swiper-slide">
+									<img
+										src="<?= $certificate; ?>"
+										alt="certificate"
+									/>
+								</div>
+
+							<?php endwhile; ?>
+						<?php endif; ?>
+
+						
 					</div>
 				</div>
 			</div>
@@ -476,7 +281,7 @@
 				src="<?= bloginfo("template_url"); ?>/assets/img/svg/chevron-down-white.svg"
 				alt="double-chevron-down"
 			/>
-			<h3>контакты</h3>
+			<h3><?= pll__("контакты"); ?></h3>
 		</a>
 	</section>
 

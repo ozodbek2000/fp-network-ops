@@ -11,7 +11,7 @@
     <body>
         <header class="header">
             <div class="header__container">
-                <a href="index.html" class="header__logo mobile-only">
+                <a href="<?= get_home_url(); ?>" class="header__logo mobile-only">
                     <svg
                         width="209"
                         height="40"
@@ -103,14 +103,14 @@
                 <nav class="header__nav">
                     <ul class="header__list">
                         <li class="header__list_item desktop-only">
-                            <a href="##">О компании</a>
+                            <a href="##"><?= pll__("О компании"); ?></a>
                         </li>
                         <li class="header__list_item desktop-only">
-                            <a href="##">Контакты</a>
+                            <a href="##"><?= pll__("Контакты"); ?></a>
                         </li>
                         <li class="header__list_item search">
                             <a href="##"
-                                ><span class="desktop-only">Поиск</span>
+                                ><span class="desktop-only"><?= pll__("Поиск"); ?></span>
                                 <svg
                                     width="24"
                                     height="24"
@@ -133,7 +133,7 @@
                         <div class="header__list_search header-search">
                             <div class="header__list_search-wrapper">
                                 <input
-                                    placeholder="Поиск"
+                                    placeholder="<?= pll__("Поиск"); ?>"
                                     name="search"
                                     type="search"
                                 />
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <li class="header__list_item desktop-only">
-                            <a href="tel:+998712673725">+998 71 267 37 25</a>
+                            <a href="tel:<?= preg_replace('/[^+\d]/', '', get_theme_mod('phone', '')); ?>"><?= get_theme_mod('phone', ''); ?></a>
                         </li>
                     </ul>
                 </nav>

@@ -1,7 +1,7 @@
 <aside class="sidebar">
 	<div class="sidebar__wrapper">
 		<div class="sidebar__logo">
-			<a href="index.html"
+			<a href="<?= get_home_url(); ?>"
 				><img src="<?= bloginfo("template_url"); ?>/assets/img/webp/logo.webp" alt="logo" />
 			</a>
 		</div>
@@ -49,7 +49,7 @@
 						/>
 					</svg>
 				</a>
-				<ul class="sidebar__list-2 @@ip">
+				<ul class="sidebar__list-2 <?= (is_page(9)) ? 'fixed' : ''; ?>">
 					<li class="sidebar__list_menu mobile-only">
 						<img
 							src="<?= bloginfo("template_url"); ?>/assets/img/svg/chevron-left.svg"
@@ -61,8 +61,8 @@
 					<li class="sidebar__list_item-2">
 						<a href="##">TDM телефония</a>
 					</li>
-					<li class="sidebar__list_item-2 @@ip">
-						<a href="/ip.html">IP телефония</a>
+					<li class="sidebar__list_item-2 <?= (is_page(9)) ? 'fixed' : ''; ?>">
+						<a href="<?= get_permalink(9); ?>">IP телефония</a>
 					</li>
 					<li class="sidebar__list_item-2">
 						<a href="##">Запись переговоров</a>
